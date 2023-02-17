@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://ct21ijhit8rdm"]
+
+[ext_resource type="Script" path="res://scenes/clickable.gd" id="1_0bpfh"]
+[ext_resource type="Script" path="res://scenes/game_camera.gd" id="1_3mlm6"]
+[ext_resource type="Script" path="res://scenes/ball.gd" id="3_khmgt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4dq8n"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_06a2g"]
+sky_material = SubResource("ProceduralSkyMaterial_4dq8n")
+
+[sub_resource type="Environment" id="Environment_3esp2"]
+background_mode = 2
+sky = SubResource("Sky_06a2g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6u714"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8p78"]
+albedo_color = Color(1, 0, 1, 1)
+emission_enabled = true
+emission = Color(0.882353, 0, 0.466667, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_eggqi"]
+material = SubResource("StandardMaterial3D_t8p78")
+text = "Hello there!"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5iprq"]
+size = Vector3(0.927697, 0.169266, 0.132947)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sd1sc"]
+radius = 0.0819353
+
+[sub_resource type="SphereMesh" id="SphereMesh_bhm0i"]
+radius = 0.075
+height = 0.15
+
+[node name="Room" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3esp2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_6u714")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("PlaneMesh_6u714")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1, 1, 0)
+mesh = SubResource("PlaneMesh_6u714")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.88178e-16, 2.98023e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 2.98023e-08, 0, 1, 1)
+mesh = SubResource("PlaneMesh_6u714")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.93319e-15, 5.76205e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, 5.76205e-08, 0, 1, -1)
+mesh = SubResource("PlaneMesh_6u714")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.00258116, -0.0766817, 0.997052, 0, 0.997056, 0.0766819, -0.999997, 0.000197928, -0.00257356, 0.911926, 0.754276, -0.00209184)
+current = true
+script = ExtResource("1_3mlm6")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(-0.00258116, -0.0766817, 0.997052, 0, 0.997055, 0.0766819, -0.999997, 0.000197928, -0.00257356, 0.911926, 0.754276, -0.00209184)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(0.883783, -0.0297697, 0.46695, 0, 0.997974, 0.0636243, -0.467898, -0.0562301, 0.881992, -0.104646, 0.746051, 0.788668)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.7, 0)
+script = ExtResource("1_0bpfh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 0, 0, 0)
+mesh = SubResource("TextMesh_eggqi")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 0, 0, 0)
+shape = SubResource("BoxShape3D_5iprq")
+
+[node name="Label3D" type="Label3D" parent="Area3D"]
+visible = false
+billboard = 1
+no_depth_test = true
+text = ">_>"
+
+[node name="Ball" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.7, 0.165362)
+script = ExtResource("3_khmgt")
+
+[node name="Label3D" type="Label3D" parent="Ball"]
+visible = false
+billboard = 1
+no_depth_test = true
+text = ">_>"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_sd1sc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+mesh = SubResource("SphereMesh_bhm0i")
+
+[connection signal="input_event" from="Area3D" to="Area3D" method="_on_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="Area3D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="Area3D" method="_on_mouse_exited"]
+[connection signal="input_event" from="Ball" to="Ball" method="_on_input_event"]
+[connection signal="mouse_entered" from="Ball" to="Ball" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Ball" to="Ball" method="_on_mouse_exited"]
