@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ct21ijhit8rdm"]
+[gd_scene load_steps=18 format=3 uid="uid://ct21ijhit8rdm"]
 
 [ext_resource type="Script" path="res://scenes/clickable.gd" id="1_0bpfh"]
 [ext_resource type="Script" path="res://scenes/game_camera.gd" id="1_3mlm6"]
+[ext_resource type="Script" path="res://scenes/room.gd" id="1_6yx73"]
 [ext_resource type="StyleBox" uid="uid://fhkcl2rwpwba" path="res://themes/stylebox/item_selected.tres" id="1_rw1nm"]
 [ext_resource type="Texture2D" uid="uid://cssmwh4rx0iv5" path="res://assets/items/icons/screwdriver.png" id="2_5rj4x"]
 [ext_resource type="StyleBox" uid="uid://q1qx3dwjh1j5" path="res://themes/stylebox/item.tres" id="3_2tjyv"]
@@ -43,6 +44,7 @@ radius = 0.075
 height = 0.15
 
 [node name="Room" type="Node3D"]
+script = ExtResource("1_6yx73")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -81,6 +83,14 @@ custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("2_5rj4x")
 expand_mode = 2
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" type="Control" parent="DialogueLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 647.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5, 0)
