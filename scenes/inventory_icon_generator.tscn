@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://br1jn73ylh6rb"]
+
+[ext_resource type="Script" path="res://scenes/inventory_icon_generator.gd" id="1_3sk4w"]
+[ext_resource type="PackedScene" uid="uid://rxa1gkldo4ba" path="res://assets/items/screwdriver/scene.gltf" id="2_rxedk"]
+
+[node name="InventoryIconGenerator" type="Node3D"]
+script = ExtResource("1_3sk4w")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.20797e-07, 0, -0.8)
+current = true
+
+[node name="scene" parent="." instance=ExtResource("2_rxedk")]
+transform = Transform3D(-0.707107, 0.683013, 0.183013, -0.707107, -0.683013, -0.183013, 0, -0.258819, 0.965926, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0.700002, 2.42487, -1.21243)
+shadow_enabled = true

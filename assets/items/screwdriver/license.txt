@@ -1,0 +1,11 @@
+Model Information:
+* title:	Screwdriver
+* source:	https://sketchfab.com/3d-models/screwdriver-aa1c39ef654447d59aea100a24c0e98e
+* author:	Sousinho (https://sketchfab.com/sousinho)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Screwdriver" (https://sketchfab.com/3d-models/screwdriver-aa1c39ef654447d59aea100a24c0e98e) by Sousinho (https://sketchfab.com/sousinho) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
